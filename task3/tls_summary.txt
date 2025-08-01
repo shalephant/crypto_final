@@ -1,0 +1,23 @@
+TLS Analysis Summary
+
+1. Certificate Chain:
+   - Leaf: www.google.com (GTS CA 1C3)
+   - Intermediate: GTS CA 1C3 (GlobalSign Root CA)
+   - Root: GlobalSign Root CA (self-signed, trusted locally)
+
+2. TLS Version: TLS 1.3
+3. Cipher Suite: TLS_AES_256_GCM_SHA384
+   - Key Exchange: ECDHE (via key_share extension)
+   - Authentication: RSA or ECDSA
+   - Bulk Encryption: AES-256-GCM
+   - Hash: SHA-384
+
+4. How TLS Provides:
+   - Confidentiality: AES-256-GCM encrypts all data.
+   - Integrity: GCM mode provides authentication tag; SHA-384 used in PRF.
+   - Forward Secrecy: ECDHE ensures session keys are ephemeral.
+
+5. Wireshark Highlights:
+   - Client Hello: Initiates handshake, lists cipher suites.
+   - Server Certificate: Sends leaf and intermediate certs.
+   - Key Exchange: ECDHE parameters exchanged in key_share (TLS 1.3).

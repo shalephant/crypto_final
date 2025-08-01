@@ -1,0 +1,17 @@
+Signature Verification Process:
+
+1. When Alice signs the message, GPG creates a SHA-256 hash of the content.
+2. This hash is encrypted with Alice's private key → forms the digital signature.
+3. Upon receipt, Bob:
+   - Decrypts the signature using Alice's public key.
+   - Computes the hash of the received message.
+   - Compares it with the decrypted hash.
+4. If they match, the signature is valid.
+
+This ensures:
+- Authenticity: Only Alice could have signed it.
+- Integrity: Message wasn't altered.
+- Non-repudiation: Alice cannot deny sending it.
+
+GPG outputs:
+"Good signature from Alice" → verification successful.
